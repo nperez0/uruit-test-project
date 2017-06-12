@@ -1,0 +1,36 @@
+﻿<div class="rules">
+    <h1 class="title">
+        Rules
+    </h1>
+    <div class="row">
+        <div class="col-sm-5">
+            <input type="text" class="form-control" placeholder="move" ng-model="vm.move" />
+        </div>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" placeholder="kills" ng-model="vm.kills" />
+        </div>
+        <div class="col-sm-2">
+            <input type="button" class="btn btn-primary" value="Add" ng-click="vm.add()" /> 
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Move</th>
+                <th>Kills</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="rule in vm.rules">
+                <td>
+                    <button class="btn btn-danger" ng-click="vm.remove(rule)">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </button>
+                </td>
+                <td>{{rule.move}}</td>
+                <td>{{rule.kills}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

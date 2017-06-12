@@ -1,0 +1,41 @@
+﻿<div class="move">
+    <h1 class="title">
+        Round {{vm.game.currentRound}}
+    </h1>
+    <h2 class="title">
+        {{vm.game.currentPlayer.name}}
+    </h2>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2">Select Move</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-options="rule as rule.move for rule in vm.rules track by rule.id" ng-model="vm.game.currentPlayer.move"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="button" class="btn btn-primary" value="Ok" ng-click="vm.move()" />
+            </div>
+        </div>
+    </form>
+    <h1 class="title">
+        Score
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Round</th>
+                <th>Winner</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="round in vm.game.rounds">
+                <td>{{round.number}}</td>
+                <td>
+                    <span ng-if="round.winner">{{round.winner.name}}</span>
+                    <span ng-if="!round.winner">Draw</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
